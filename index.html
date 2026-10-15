@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Durga Khadbade | Backend Engineer & Distributed Systems | Ice Cream Parlor Portfolio</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Portfolio of Durga Khadbade — TE Third-Year ENTC Engineering Student & Backend Engineer passionate about Java Spring Boot, GoLang, Apache Kafka, AI/ML, DevOps, and Kubernetes.">
+  <meta name="keywords" content="Durga Khadbade, Backend Engineer, Java, Spring Boot, GoLang, Apache Kafka, Kubernetes, Docker, ENTC Student, Distributed Systems, Portfolio">
+  <meta name="author" content="Durga Khadbade">
+  
+  <!-- OpenGraph Tags -->
+  <meta property="og:title" content="Durga Khadbade | Backend Engineer Portfolio">
+  <meta property="og:description" content="Serving distributed systems with high availability and a cherry on top. Java, Go, Kafka, Docker & Kubernetes.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon (Emoji SVG) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍦</text></svg>">
+
+  <!-- Tailwind CSS CDN for utility support -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            strawberry: '#FF85A1',
+            mint: '#70E4D5',
+            blueberry: '#A29BFE',
+            vanilla: '#FFEAA7',
+            cocoa: '#2D3436'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Three.js (r128) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- GSAP Animation Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+  <!-- Floating Canvas Sprinkles Background -->
+  <canvas id="sprinkles-canvas"></canvas>
+
+  <!-- Top Striped Awning Bar -->
+  <div class="awning-stripes" aria-hidden="true"></div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo" id="nav-brand-logo">
+        <span class="logo-scoop">🍦</span>
+        <span>Durga Khadbade</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#about" class="nav-item">About</a></li>
+          <li><a href="#skills" class="nav-item">Secret Recipe</a></li>
+          <li><a href="#projects" class="nav-item">Flavor Menu</a></li>
+          <li><a href="#sundae-lab" class="nav-item">Sundae Lab</a></li>
+          <li><a href="#contact" class="nav-item">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions -->
+      <div class="nav-actions">
+        <!-- Theme Flavor Switcher -->
+        <div class="flavor-picker" title="Switch Parlor Theme Flavor">
+          <button type="button" class="flavor-dot active" data-flavor="strawberry" aria-label="Strawberry Theme"></button>
+          <button type="button" class="flavor-dot" data-flavor="mint" aria-label="Mint Theme"></button>
+          <button type="button" class="flavor-dot" data-flavor="blueberry" aria-label="Blueberry Theme"></button>
+        </div>
+
+        <!-- Web Audio Synthesizer Sound Toggle -->
+        <button type="button" class="sound-toggle-btn" id="sound-toggle-btn" title="Toggle Parlor Sound Effects" aria-label="Toggle Sound">
+          <i data-lucide="volume-2"></i>
+        </button>
+
+        <!-- Order a Scoop CTA -->
+        <a href="#contact" class="btn btn-strawberry text-sm py-2 px-4 hidden md:inline-flex" id="nav-cta-btn">
+          <span>Order a Scoop</span>
+          <i data-lucide="sparkles" class="w-4 h-4"></i>
+        </a>
+
+        <!-- Mobile Menu Trigger -->
+        <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open Mobile Menu">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-label="Mobile Navigation">
+    <a href="#about" class="mobile-nav-link">
+      <span>About Durga</span>
+      <i data-lucide="chevron-right" class="w-4 h-4"></i>
+    </a>
+    <a href="#skills" class="mobile-nav-link">
+      <span>The Secret Recipe (Skills)</span>
+      <i data-lucide="chevron-right" class="w-4 h-4"></i>
+    </a>
+    <a href="#projects" class="mobile-nav-link">
+      <span>Flavor Menu (Projects)</span>
+      <i data-lucide="chevron-right" class="w-4 h-4"></i>
+    </a>
+    <a href="#sundae-lab" class="mobile-nav-link">
+      <span>Sundae Lab (Builder)</span>
+      <i data-lucide="chevron-right" class="w-4 h-4"></i>
+    </a>
+    <a href="#contact" class="mobile-nav-link">
+      <span>Contact & Order Counter</span>
+      <i data-lucide="chevron-right" class="w-4 h-4"></i>
+    </a>
+  </div>
+
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- ======================================================================
+         Hero Section
+         ====================================================================== -->
+    <section class="hero-section" id="hero">
+      <div class="hero-container">
+        
+        <!-- Left Column: Bio & Hero Content -->
+        <div class="hero-content">
+          <div class="hero-badge-wrap">
+            <div class="status-scoop">
+              <span class="status-indicator"></span>
+              <span>Available for 2026 Engineering Roles</span>
+            </div>
+            <div class="waffle-pill">
+              <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+              <span>TE Third-Year ENTC Engineering</span>
+            </div>
+          </div>
+
+          <h1 class="hero-title">
+            Hey, I'm <span class="highlight-name">Durga Khadbade</span> 🍦
+          </h1>
+
+          <div class="hero-headline">
+            <span>Backend Engineer</span>
+            <span class="headline-tag">AI / ML</span>
+            <span class="headline-tag">DevOps & Cloud</span>
+          </div>
+
+          <p class="hero-description">
+            Serving distributed systems with high availability, sub-millisecond latencies, and a cherry on top. Passionate about concurrent backends in <strong>Java & GoLang</strong>, message streaming with <strong>Apache Kafka</strong>, and container orchestration with <strong>Kubernetes</strong>.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-strawberry" id="hero-cta-projects">
+              <i data-lucide="layers" class="w-5 h-5"></i>
+              <span>View Projects</span>
+            </a>
+            <a href="#contact" class="btn btn-mint" id="hero-cta-contact">
+              <i data-lucide="mail" class="w-5 h-5"></i>
+              <span>Get in Touch</span>
+            </a>
+            <a href="#sundae-lab" class="btn btn-outline" id="hero-cta-sundae">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+              <span>Build a Sundae</span>
+            </a>
+          </div>
+
+          <!-- Quick Metrics Grid -->
+          <div class="hero-stats-grid">
+            <div class="stat-item">
+              <span class="stat-number">3<sup>rd</sup> Yr</span>
+              <span class="stat-label">ENTC Engineering</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">50k+</span>
+              <span class="stat-label">Kafka Events/sec</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">99.9%</span>
+              <span class="stat-label">Uptime Mindset</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive 3D Ice Cream Cone Scene -->
+        <div class="hero-3d-wrap">
+          <!-- Floating Interactive Badges -->
+          <div class="floating-parlor-badge badge-top-left">
+            <span>🍦</span>
+            <span>3D Scoop (Drag to Spin!)</span>
+          </div>
+          
+          <div class="floating-parlor-badge badge-mid-right">
+            <span>📨</span>
+            <span>Kafka Stream Driven</span>
+          </div>
+
+          <div class="floating-parlor-badge badge-bottom-right">
+            <span>☸️</span>
+            <span>Kubernetes Native</span>
+          </div>
+
+          <!-- WebGL Three.js Container -->
+          <div id="three-canvas-container" title="Click to bounce scoops, drag to rotate in 3D!"></div>
+
+          <div class="canvas-hint-pill">
+            <i data-lucide="mouse-pointer" class="w-3.5 h-3.5"></i>
+            <span>Drag cone to rotate • Click to bounce</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Organic Melting SVG Drip Divider (Hero -> About) -->
+    <div class="drip-divider" aria-hidden="true">
+      <svg viewBox="0 0 1200 48" preserveAspectRatio="none" fill="#FFFDF9">
+        <path d="M0,0 C150,38 350,48 500,18 C650,-12 750,42 900,20 C1050,-2 1150,30 1200,8 L1200,48 L0,48 Z" fill="#F9F5EC"/>
+        <circle cx="280" cy="40" r="4" fill="#F9F5EC"/>
+        <circle cx="720" cy="42" r="5" fill="#F9F5EC"/>
+      </svg>
+    </div>
+
+    <!-- ======================================================================
+         About & Hobbies Section
+         ====================================================================== -->
+    <section class="section bg-[#F9F5EC]" id="about">
+      <div class="section-container">
+        
+        <div class="section-header">
+          <span class="section-tag">
+            <i data-lucide="user" class="w-4 h-4"></i>
+            <span>The Parlor Story</span>
+          </span>
+          <h2 class="section-title">Behind the Counter</h2>
+          <p class="section-subtitle">
+            Electronics & Telecommunications Engineering meets modern distributed cloud backends.
+          </p>
+        </div>
+
+        <!-- Bio Grid -->
+        <div class="about-grid">
+          
+          <!-- Profile Story Card -->
+          <div class="about-card-profile">
+            <div class="profile-avatar-row">
+              <div class="avatar-scoop" aria-hidden="true">👩‍💻</div>
+              <div class="profile-info">
+                <h3>Durga Khadbade</h3>
+                <p>TE Third-Year ENTC Student & Backend Craftsman</p>
+              </div>
+            </div>
+
+            <p class="about-bio-text">
+              I'm an engineering student with a deep fascination for <strong>distributed event streaming</strong>, concurrent pipelines, and cloud-native infrastructure. As an ENTC student, I study the physics of signals and networks from silicon up to fiber optics — giving me a distinctive, rigorous intuition for low-level latency and network bottlenecks.
+            </p>
+
+            <p class="about-bio-text">
+              When I'm not tuning Kafka partition keys or architecting resilient Spring Boot microservices, you'll find me exploring neural architectures, sketching playful UI designs, or coding wonderfully eccentric software just for the sheer joy of it.
+            </p>
+
+            <div class="about-chips">
+              <span class="about-chip">🎓 3rd Year ENTC</span>
+              <span class="about-chip">☕ Java & Go Enthusiast</span>
+              <span class="about-chip">☁️ Kubernetes Learner</span>
+              <span class="about-chip">⚡ Sub-15ms Target</span>
+            </div>
+          </div>
+
+          <!-- ENTC Spotlight Card -->
+          <div class="entc-spotlight-box">
+            <span class="spotlight-badge">
+              <i data-lucide="cpu" class="w-4 h-4"></i>
+              <span>ENTC + Backend Synergy</span>
+            </span>
+            <h3>How Hardware & Telecommunications Fuel My Code</h3>
+            <p>
+              Telecommunication engineering isn't just about formulas; it's about packet routing, signal-to-noise ratios, and reliable transmissions over imperfect channels. I apply those exact principles to build self-healing distributed backends.
+            </p>
+
+            <div class="entc-pillars">
+              <div class="pillar-item">
+                <div class="pillar-icon">
+                  <i data-lucide="radio" class="w-4 h-4"></i>
+                </div>
+                <h4>Signal Processing</h4>
+                <span>FFT, telemetry analysis & ML-based noise reduction.</span>
+              </div>
+              <div class="pillar-item">
+                <div class="pillar-icon">
+                  <i data-lucide="network" class="w-4 h-4"></i>
+                </div>
+                <h4>Network Protocols</h4>
+                <span>Deep comprehension of TCP, gRPC, and socket concurrency.</span>
+              </div>
+              <div class="pillar-item">
+                <div class="pillar-icon">
+                  <i data-lucide="shield-check" class="w-4 h-4"></i>
+                </div>
+                <h4>Fault Tolerance</h4>
+                <span>Applying error-correction codes to distributed message brokers.</span>
+              </div>
+              <div class="pillar-item">
+                <div class="pillar-icon">
+                  <i data-lucide="gauge" class="w-4 h-4"></i>
+                </div>
+                <h4>Low Latency</h4>
+                <span>Minimizing round-trip times and memory allocations.</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 3 Interactive Hobby Stations -->
+        <div class="hobbies-subheading">
+          <span class="section-tag" style="background: var(--blueberry-light); color: var(--blueberry-dark);">
+            <i data-lucide="smile" class="w-4 h-4"></i>
+            <span>Flavors of Personality</span>
+          </span>
+          <h3>What Keeps Durga Inspired</h3>
+        </div>
+
+        <div class="hobbies-grid">
+          
+          <!-- Hobby 1: Creative Designing -->
+          <div class="hobby-card hobby-design">
+            <div class="hobby-header">
+              <div class="hobby-icon-wrap">
+                <i data-lucide="palette" class="w-6 h-6"></i>
+              </div>
+              <span class="hobby-badge">Design & Craft</span>
+            </div>
+            <h4>Creative Designing</h4>
+            <p class="hobby-desc">
+              Great software shouldn't just be fast under the hood; it should look and feel delightful. I love crafting playful aesthetics, micro-interactions, and pastel design systems that spark joy.
+            </p>
+            <div class="hobby-quote-badge">
+              "A backend with 99.9% uptime deserves a frontend that makes people smile."
+            </div>
+            <div class="swatch-mixer-preview" title="Click a swatch to sample Durga's palette">
+              <span class="text-xs font-semibold text-gray-500 mr-1">Sample Swatch:</span>
+              <div class="mixer-circle" data-color="#FF85A1" style="background: #FF85A1;"></div>
+              <div class="mixer-circle" data-color="#70E4D5" style="background: #70E4D5;"></div>
+              <div class="mixer-circle" data-color="#A29BFE" style="background: #A29BFE;"></div>
+              <div class="mixer-circle" data-color="#FFEAA7" style="background: #FFEAA7;"></div>
+            </div>
+          </div>
+
+          <!-- Hobby 2: Building "Useless" Software -->
+          <div class="hobby-card hobby-useless">
+            <div class="hobby-header">
+              <div class="hobby-icon-wrap">
+                <i data-lucide="terminal" class="w-6 h-6"></i>
+              </div>
+              <span class="hobby-badge">Digital Nonsense</span>
+            </div>
+            <h4>Building "Useless" Softwares</h4>
+            <p class="hobby-desc">
+              Not every line of code needs to disrupt a billion-dollar market. Sometimes writing 10,000 goroutines to play elevator jazz when an API succeeds is the best way to master concurrency!
+            </p>
+            <div class="hobby-quote-badge">
+              "100% bugs, 0% enterprise utility, 1000% pure dopamine."
+            </div>
+            <button type="button" class="useless-btn" id="btn-useless-generator">
+              <i data-lucide="shuffle" class="w-4 h-4"></i>
+              <span>Generate Useless Idea</span>
+            </button>
+            <div class="useless-display-box" id="useless-display-box"></div>
+          </div>
+
+          <!-- Hobby 3: Reading -->
+          <div class="hobby-card hobby-reading">
+            <div class="hobby-header">
+              <div class="hobby-icon-wrap">
+                <i data-lucide="book-open" class="w-6 h-6"></i>
+              </div>
+              <span class="hobby-badge">Bookshelf</span>
+            </div>
+            <h4>Reading & Deep Dives</h4>
+            <p class="hobby-desc">
+              From hard engineering classics on data-intensive systems to speculative sci-fi. Reading broadens my horizon on failure modes, consensus algorithms, and creative problem-solving.
+            </p>
+            <div class="hobby-quote-badge">
+              "Always bet on fundamentals, whether in physics or distributed logs."
+            </div>
+            <div class="reading-tags">
+              <div class="book-pill" data-book="Designing Data-Intensive Applications" title="Click to view quote">
+                <span>Designing Data-Intensive Apps</span>
+                <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+              </div>
+              <div class="book-pill" data-book="Building Microservices" title="Click to view quote">
+                <span>Building Microservices</span>
+                <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+              </div>
+              <div class="book-pill" data-book="Project Hail Mary" title="Click to view quote">
+                <span>Project Hail Mary (Sci-Fi)</span>
+                <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Organic Melting SVG Drip Divider (About -> Tech) -->
+    <div class="drip-divider" aria-hidden="true">
+      <svg viewBox="0 0 1200 48" preserveAspectRatio="none" fill="#F9F5EC">
+        <path d="M0,0 C200,45 380,-10 600,24 C820,58 980,5 1200,32 L1200,48 L0,48 Z" fill="#FAF3E8"/>
+        <circle cx="450" cy="38" r="4.5" fill="#FAF3E8"/>
+        <circle cx="880" cy="42" r="4" fill="#FAF3E8"/>
+      </svg>
+    </div>
+
+    <!-- ======================================================================
+         Tech Stack Section ("The Secret Recipe & Ingredients")
+         ====================================================================== -->
+    <section class="section tech-section" id="skills">
+      <div class="section-container">
+        
+        <div class="section-header">
+          <span class="section-tag" style="background: var(--mint-light); color: var(--mint-dark);">
+            <i data-lucide="code" class="w-4 h-4"></i>
+            <span>Artisan Ingredients</span>
+          </span>
+          <h2 class="section-title">The Secret Recipe</h2>
+          <p class="section-subtitle">
+            Core technologies and tools Durga uses to churn high-availability microservices and real-time streaming architectures.
+          </p>
+        </div>
+
+        <!-- Tech Category Filters -->
+        <div class="tech-filter-bar">
+          <button type="button" class="tech-filter-btn active" data-filter="all">All Ingredients</button>
+          <button type="button" class="tech-filter-btn" data-filter="backend">Core Backends</button>
+          <button type="button" class="tech-filter-btn" data-filter="cloud">Cloud & K8s</button>
+          <button type="button" class="tech-filter-btn" data-filter="streaming">Data & Streams</button>
+          <button type="button" class="tech-filter-btn" data-filter="tools">Tools & AI</button>
+        </div>
+
+        <!-- Tech Cards Grid -->
+        <div class="tech-grid" id="tech-cards-grid">
+          
+          <!-- Java (Spring Boot) -->
+          <div class="tech-card" data-category="backend" data-flavor="strawberry">
+            <div class="tech-card-header">
+              <div class="tech-icon-box" style="color: #FF85A1;">
+                <i data-lucide="coffee" class="w-6 h-6"></i>
+              </div>
+              <span class="tech-badge-flavor flavor-pink">Spring 3</span>
+            </div>
+            <h4>Java (Spring Boot)</h4>
+            <p>Enterprise microservices, Spring Cloud, RESTful APIs, JPA/Hibernate, and Spring Security.</p>
+            <div class="tech-meter-wrap">
+              <div class="tech-meter-label">
+                <span>Mastery</span>
+                <span>Advanced</span>
+              </div>
+              <div class="tech-progress-bar">
+                <div class="tech-progress-fill" style="width: 90%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- GoLang -->
+          <div class="tech-card" data-category="backend" data-flavor="mint">
+            <div class="tech-card-header">
+              <div class="tech-icon-box" style="color: #70E4D5;">
+                <i data-lucide="zap" class="w-6 h-6"></i>
+              </div>
+              <span class="tech-badge-flavor flavor-green">Go 1.22</span>
+            </div>
+            <h4>GoLang</h4>
+            <p>Lightweight goroutines, high-throughput network services, channels, and low-latency microservices.</p>
+            <div class="tech-meter-wrap">
+              <div class="tech-meter-label">
+                <span>Mastery</span>
+                <span>Proficient</span>
+              </div>
+              <div class="tech-progress-bar">
+                <div class="tech-progress-fill" style="width: 85%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Apache Kafka -->
+          <div class="tech-card" data-category="streaming" data-flavor="blueberry">
+            <div class="tech-card-header">
+              <div class="tech-icon-box" style="color: #A29BFE;">
+                <i data-lucide="git-merge" class="w-6 h-6"></i>
+              </div>
+              <span class="tech-badge-flavor flavor-purple">Distributed Log</span>
+            </div>
+            <h4>Apache Kafka</h4>
+            <p>Topic partitioning, consumer group rebalancing, event streaming, idempotent producers, and schema registries.</p>
+            <div class="tech-meter-wrap">
+              <div class="tech-meter-label">
+                <span>Mastery</span>
+                <span>Advanced</span>
+              </div>
+              <div class="tech-progress-bar">
+                <div class="tech-progress-fill" style="width: 88%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Docker & Kubernetes -->
+          <div class="tech-card" data-category="cloud" data-flavor="mint">
+            <div class="tech-card-header">
+              <div class="tech-icon-box" style="color: #70E4D5;">
+                <i data-lucide="box" class="w-6 h-6"></i>
+              </div>
+              <span class="tech-badge-flavor flavor-green">Container Mesh</span>
+            </div>
+            <h4>Docker & Kubernetes</h4>
+            <p>Multi-stage container builds, Helm charts, Deployments, Services, ConfigMaps, and cluster auto-scaling.</p>
+            <div class="tech-meter-wrap">
+              <div class="tech-meter-label">
+                <span>Mastery</span>
+                <span>Proficient</span>
+              </div>
+              <div class="tech-progress-bar">
+                <div class="tech-progress-fill" style="width: 82%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Git & GitHub -->
+          <div class="tech-card" data-category="tools" data-flavor="strawberry">
+            <div class="tech-card-header">
+              <div class="tech-icon-box" style="color: #FF85A1;">
+                <i data-lucide="git-branch" class="w-6 h-6"></i>
+              </div>
+              <span class="tech-badge-flavor flavor-pink">GitOps</span>
+            </div>
+            <h4>Git & GitHub</h4>
+            <p>Trunk-based development, GitHub Actions CI/CD pipelines, release tagging, and PR review workflows.</p>
+            <div class="tech-meter-wrap">
+              <div class="tech-meter-label">
+                <span>Mastery</span>
+                <span>Expert</span>
+              </div>
+              <div class="tech-progress-bar">
+                <div class="tech-progress-fill" style="width: 95%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PostgreSQL & Redis -->
+          <div class="tech-card" data-category="streaming" data-flavor="strawberry">
+            <div class="tech-card-header">
+              <div class="tech-icon-box" style="color: #E58E26;">
+                <i data-lucide="database" class="w-6 h-6"></i>
+              </div>
+              <span class="tech-badge-flavor flavor-orange">Data Stores</span>
+            </div>
+            <h4>PostgreSQL & Redis</h4>
+            <p>Relational modeling, indexing strategies, ACID guarantees, in-memory caching, and Pub/Sub queues.</p>
+            <div class="tech-meter-wrap">
+              <div class="tech-meter-label">
+                <span>Mastery</span>
+                <span>Advanced</span>
+              </div>
+              <div class="tech-progress-bar">
+                <div class="tech-progress-fill" style="width: 88%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cloud & DevOps (AWS/GCP) -->
+          <div class="tech-card" data-category="cloud" data-flavor="blueberry">
+            <div class="tech-card-header">
+              <div class="tech-icon-box" style="color: #A29BFE;">
+                <i data-lucide="cloud" class="w-6 h-6"></i>
+              </div>
+              <span class="tech-badge-flavor flavor-purple">Cloud Infra</span>
+            </div>
+            <h4>Cloud & DevOps</h4>
+            <p>AWS EC2, S3, IAM, container registries, Linux systems administration, and Prometheus/Grafana observability.</p>
+            <div class="tech-meter-wrap">
+              <div class="tech-meter-label">
+                <span>Mastery</span>
+                <span>Proficient</span>
+              </div>
+              <div class="tech-progress-bar">
+                <div class="tech-progress-fill" style="width: 80%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- AI / ML & Python -->
+          <div class="tech-card" data-category="tools" data-flavor="mint">
+            <div class="tech-card-header">
+              <div class="tech-icon-box" style="color: #70E4D5;">
+                <i data-lucide="sparkles" class="w-6 h-6"></i>
+              </div>
+              <span class="tech-badge-flavor flavor-green">PyTorch ML</span>
+            </div>
+            <h4>AI / ML & Python</h4>
+            <p>PyTorch, Scikit-Learn, FastAPI, ENTC signal processing, FFT spectrograms, and edge telemetry modeling.</p>
+            <div class="tech-meter-wrap">
+              <div class="tech-meter-label">
+                <span>Mastery</span>
+                <span>Proficient</span>
+              </div>
+              <div class="tech-progress-bar">
+                <div class="tech-progress-fill" style="width: 78%;"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Organic Melting SVG Drip Divider (Tech -> Projects) -->
+    <div class="drip-divider" aria-hidden="true">
+      <svg viewBox="0 0 1200 48" preserveAspectRatio="none" fill="#FAF3E8">
+        <path d="M0,0 C300,50 480,-8 720,28 C960,60 1100,10 1200,38 L1200,48 L0,48 Z" fill="#FFFDF9"/>
+        <circle cx="340" cy="40" r="5" fill="#FFFDF9"/>
+        <circle cx="950" cy="42" r="4" fill="#FFFDF9"/>
+      </svg>
+    </div>
+
+    <!-- ======================================================================
+         Projects Section ("Flavor Menu" Board)
+         ====================================================================== -->
+    <section class="section projects-section" id="projects">
+      <div class="section-container">
+        
+        <div class="section-header">
+          <span class="section-tag">
+            <i data-lucide="sparkles" class="w-4 h-4"></i>
+            <span>Artisan Creations</span>
+          </span>
+          <h2 class="section-title">Flavor Menu</h2>
+          <p class="section-subtitle">
+            Hand-churned backend architectures, distributed pipelines, and delightfully overengineered experiments.
+          </p>
+        </div>
+
+        <!-- Parlor Chalkboard Banner -->
+        <div class="parlor-board-banner">
+          <div class="chalk-title">
+            <i data-lucide="coffee" class="w-6 h-6 text-vanilla"></i>
+            <span>Today's Board: Guaranteed Fresh & Low-Latency</span>
+          </div>
+          <div class="chalk-sub">
+            ⚡ Avg P99 Latency: 12.4ms • 🛡️ 0 Silent Failures • 🍨 Handcrafted by Durga
+          </div>
+        </div>
+
+        <!-- Project Filter Buttons -->
+        <div class="project-categories-bar">
+          <button type="button" class="project-filter-btn active" data-filter="all">All Flavors</button>
+          <button type="button" class="project-filter-btn" data-filter="backend">Backend & Streams</button>
+          <button type="button" class="project-filter-btn" data-filter="cloud">Cloud & K8s</button>
+          <button type="button" class="project-filter-btn" data-filter="aiml">AI / ML & ENTC</button>
+          <button type="button" class="project-filter-btn" data-filter="useless">Useless Software</button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid" id="projects-grid">
+          
+          <!-- Project 1: KafkaStream Hub -->
+          <div class="project-card" data-category="backend">
+            <div class="project-cone-banner">
+              <span class="banner-icon">☕</span>
+              <span class="project-flavor-tag">Double Espresso Crunch</span>
+              <span class="project-badge-corner">High Concurrency</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">KafkaStream Hub</h3>
+              <p class="project-description">
+                A high-throughput distributed event streaming engine processing 50k+ events/sec with fault-tolerant partitioned consumer groups and real-time metric dashboards.
+              </p>
+              <div class="project-tags-wrap">
+                <span class="tech-tag-pill">GoLang</span>
+                <span class="tech-tag-pill">Apache Kafka</span>
+                <span class="tech-tag-pill">Docker</span>
+                <span class="tech-tag-pill">Prometheus</span>
+                <span class="tech-tag-pill">Redis</span>
+              </div>
+              <div class="project-footer-links">
+                <a href="#" class="project-link-btn btn-view-deepdive" data-project="kafka" title="View Architecture Specs">
+                  <i data-lucide="file-text" class="w-4 h-4"></i>
+                  <span>Architecture</span>
+                </a>
+                <div class="flex items-center gap-1.5">
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="project-link-btn" title="View Source on GitHub">
+                    <i data-lucide="github" class="w-4 h-4"></i>
+                    <span>GitHub</span>
+                  </a>
+                  <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="project-link-btn primary" title="View Live Demo">
+                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                    <span>Demo</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: SpringCloud K8s Mesh -->
+          <div class="project-card" data-category="cloud">
+            <div class="project-cone-banner">
+              <span class="banner-icon">🍃</span>
+              <span class="project-flavor-tag">Mint Choco-Cluster</span>
+              <span class="project-badge-corner">K8s Native</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">SpringCloud K8s Mesh</h3>
+              <p class="project-description">
+                Cloud-native enterprise microservices architecture featuring auto-scaling Kubernetes pods, Resilience4j circuit breakers, and OpenTelemetry distributed tracing.
+              </p>
+              <div class="project-tags-wrap">
+                <span class="tech-tag-pill">Java 17</span>
+                <span class="tech-tag-pill">Spring Boot 3</span>
+                <span class="tech-tag-pill">Kubernetes</span>
+                <span class="tech-tag-pill">PostgreSQL</span>
+                <span class="tech-tag-pill">Helm</span>
+              </div>
+              <div class="project-footer-links">
+                <a href="#" class="project-link-btn btn-view-deepdive" data-project="spring" title="View Architecture Specs">
+                  <i data-lucide="file-text" class="w-4 h-4"></i>
+                  <span>Architecture</span>
+                </a>
+                <div class="flex items-center gap-1.5">
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="project-link-btn" title="View Source on GitHub">
+                    <i data-lucide="github" class="w-4 h-4"></i>
+                    <span>GitHub</span>
+                  </a>
+                  <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="project-link-btn primary" title="View Live Demo">
+                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                    <span>Demo</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: AI Signal Sense -->
+          <div class="project-card" data-category="aiml">
+            <div class="project-cone-banner">
+              <span class="banner-icon">🫐</span>
+              <span class="project-flavor-tag">Blueberry Neural Swirl</span>
+              <span class="project-badge-corner">ENTC + ML</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">AI Signal Sense</h3>
+              <p class="project-description">
+                Bridging ENTC signal processing with neural networks. Transforms raw RF and sensor telemetry into FFT spectrograms and classifies anomalies with 94.8% accuracy.
+              </p>
+              <div class="project-tags-wrap">
+                <span class="tech-tag-pill">Python</span>
+                <span class="tech-tag-pill">PyTorch</span>
+                <span class="tech-tag-pill">FastAPI</span>
+                <span class="tech-tag-pill">Signal Processing</span>
+                <span class="tech-tag-pill">Docker</span>
+              </div>
+              <div class="project-footer-links">
+                <a href="#" class="project-link-btn btn-view-deepdive" data-project="aiml" title="View Architecture Specs">
+                  <i data-lucide="file-text" class="w-4 h-4"></i>
+                  <span>Architecture</span>
+                </a>
+                <div class="flex items-center gap-1.5">
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="project-link-btn" title="View Source on GitHub">
+                    <i data-lucide="github" class="w-4 h-4"></i>
+                    <span>GitHub</span>
+                  </a>
+                  <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="project-link-btn primary" title="View Live Demo">
+                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                    <span>Demo</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: The Overengineered Excuse Generator & Chai-O-Meter -->
+          <div class="project-card" data-category="useless">
+            <div class="project-cone-banner">
+              <span class="banner-icon">🌈</span>
+              <span class="project-flavor-tag">Rainbow Sprinkle Madness</span>
+              <span class="project-badge-corner">Playful Build</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">Excuse Generator & Chai-O-Meter</h3>
+              <p class="project-description">
+                Delightfully useless backend that simulates 10,000 goroutines to calculate how many milliwatts of electricity your git commit wasted and delivers mathematical build excuses.
+              </p>
+              <div class="project-tags-wrap">
+                <span class="tech-tag-pill">GoLang</span>
+                <span class="tech-tag-pill">WebSockets</span>
+                <span class="tech-tag-pill">Redis</span>
+                <span class="tech-tag-pill">Canvas API</span>
+                <span class="tech-tag-pill">Pure Joy</span>
+              </div>
+              <div class="project-footer-links">
+                <a href="#" class="project-link-btn btn-view-deepdive" data-project="useless" title="View Architecture Specs">
+                  <i data-lucide="file-text" class="w-4 h-4"></i>
+                  <span>Architecture</span>
+                </a>
+                <div class="flex items-center gap-1.5">
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="project-link-btn" title="View Source on GitHub">
+                    <i data-lucide="github" class="w-4 h-4"></i>
+                    <span>GitHub</span>
+                  </a>
+                  <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="project-link-btn primary" title="View Live Demo">
+                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                    <span>Demo</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5: DevOps GitPulse -->
+          <div class="project-card" data-category="cloud">
+            <div class="project-cone-banner">
+              <span class="banner-icon">🍦</span>
+              <span class="project-flavor-tag">Vanilla Bean Infrastructure</span>
+              <span class="project-badge-corner">GitOps CI/CD</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">DevOps GitPulse</h3>
+              <p class="project-description">
+                Declarative GitOps deployment pipeline integrating automated Trivy security vulnerability audits, multi-stage Docker builds, and zero-downtime rolling updates.
+              </p>
+              <div class="project-tags-wrap">
+                <span class="tech-tag-pill">GitHub Actions</span>
+                <span class="tech-tag-pill">Docker</span>
+                <span class="tech-tag-pill">ArgoCD</span>
+                <span class="tech-tag-pill">Kubernetes</span>
+                <span class="tech-tag-pill">Trivy</span>
+              </div>
+              <div class="project-footer-links">
+                <a href="#" class="project-link-btn btn-view-deepdive" data-project="gitpulse" title="View Architecture Specs">
+                  <i data-lucide="file-text" class="w-4 h-4"></i>
+                  <span>Architecture</span>
+                </a>
+                <div class="flex items-center gap-1.5">
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="project-link-btn" title="View Source on GitHub">
+                    <i data-lucide="github" class="w-4 h-4"></i>
+                    <span>GitHub</span>
+                  </a>
+                  <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="project-link-btn primary" title="View Live Demo">
+                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                    <span>Demo</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Organic Melting SVG Drip Divider (Projects -> Sundae Lab) -->
+    <div class="drip-divider" aria-hidden="true">
+      <svg viewBox="0 0 1200 48" preserveAspectRatio="none" fill="#FFFDF9">
+        <path d="M0,0 C180,42 360,6 540,36 C720,62 900,-8 1080,25 L1200,10 L1200,48 L0,48 Z" fill="#FAF3E8"/>
+        <circle cx="210" cy="40" r="4" fill="#FAF3E8"/>
+        <circle cx="780" cy="44" r="5" fill="#FAF3E8"/>
+      </svg>
+    </div>
+
+    <!-- ======================================================================
+         Interactive "Build Your Own Sundae" Section
+         ====================================================================== -->
+    <section class="section sundae-section" id="sundae-lab">
+      <div class="section-container">
+        
+        <div class="section-header">
+          <span class="section-tag" style="background: var(--vanilla-light); color: var(--waffle-crust);">
+            <i data-lucide="sparkles" class="w-4 h-4"></i>
+            <span>Interactive Mini-Game</span>
+          </span>
+          <h2 class="section-title">The Sundae Lab</h2>
+          <p class="section-subtitle">
+            Stack Durga's backend scoops, drizzle architectural sauces, and generate a certified high-availability recipe!
+          </p>
+        </div>
+
+        <div class="sundae-creator-card">
+          
+          <!-- Controls Column -->
+          <div class="sundae-controls-col">
+            <h3>Custom Architecture Mixer</h3>
+            <p>Select your favorite stack layers to whip up a distributed dessert:</p>
+
+            <!-- Step 1: Base Scoop -->
+            <div class="sundae-step-group">
+              <span class="sundae-step-label">
+                <i data-lucide="circle-dot" class="w-4 h-4 text-strawberry"></i>
+                <span>1. Base Scoop (Core Language)</span>
+              </span>
+              <div class="sundae-options-row">
+                <button type="button" class="sundae-opt-btn active" data-step="base" data-val="Java Spring Boot">☕ Java Spring Boot</button>
+                <button type="button" class="sundae-opt-btn mint-opt" data-step="base" data-val="GoLang 1.22">⚡ GoLang 1.22</button>
+              </div>
+            </div>
+
+            <!-- Step 2: Middle Stream Scoop -->
+            <div class="sundae-step-group">
+              <span class="sundae-step-label">
+                <i data-lucide="circle-dot" class="w-4 h-4 text-blueberry"></i>
+                <span>2. Stream & Data Layer</span>
+              </span>
+              <div class="sundae-options-row">
+                <button type="button" class="sundae-opt-btn blueberry-opt active" data-step="middle" data-val="Apache Kafka">📨 Apache Kafka</button>
+                <button type="button" class="sundae-opt-btn" data-step="middle" data-val="Postgres + Redis">🗄️ Postgres + Redis</button>
+              </div>
+            </div>
+
+            <!-- Step 3: Top Cloud Scoop -->
+            <div class="sundae-step-group">
+              <span class="sundae-step-label">
+                <i data-lucide="circle-dot" class="w-4 h-4 text-mint"></i>
+                <span>3. Top Cloud Layer</span>
+              </span>
+              <div class="sundae-options-row">
+                <button type="button" class="sundae-opt-btn mint-opt active" data-step="top" data-val="Kubernetes Cluster">☸️ Kubernetes Cluster</button>
+                <button type="button" class="sundae-opt-btn" data-step="top" data-val="AI / ML Sense">🧠 AI / ML Sense</button>
+              </div>
+            </div>
+
+            <!-- Step 4: Drizzle Sauce -->
+            <div class="sundae-step-group">
+              <span class="sundae-step-label">
+                <i data-lucide="droplet" class="w-4 h-4 text-waffle"></i>
+                <span>4. Architectural Drizzle</span>
+              </span>
+              <div class="sundae-options-row">
+                <button type="button" class="sundae-opt-btn active" data-step="drizzle" data-val="Zero-Downtime CI/CD">🚀 Zero-Downtime CI/CD</button>
+                <button type="button" class="sundae-opt-btn" data-step="drizzle" data-val="Prometheus Metrics">📊 Prometheus Metrics</button>
+                <button type="button" class="sundae-opt-btn" data-step="drizzle" data-val="Kafka Topic Partitioning">🔀 Topic Partitioning</button>
+              </div>
+            </div>
+
+            <div class="flex gap-3 mt-4">
+              <button type="button" class="btn btn-outline" id="btn-random-sundae">
+                <i data-lucide="dice-5" class="w-4 h-4"></i>
+                <span>Surprise Chef's Special</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Live Sundae Visualizer Column -->
+          <div class="sundae-preview-col">
+            <div class="sundae-dish-graphic">
+              <!-- Cherry on Top -->
+              <div class="visual-cherry">🍒</div>
+
+              <!-- Stacking Scoops Container -->
+              <div class="visual-scoop-stack" id="visual-scoop-stack">
+                <!-- Injected via JavaScript -->
+              </div>
+
+              <!-- Glass Sundae Dish Base -->
+              <div class="visual-glass-bowl"></div>
+              <div class="visual-bowl-stem"></div>
+              <div class="visual-bowl-base"></div>
+            </div>
+
+            <!-- Dynamic Recipe Summary Card -->
+            <h4 class="sundae-recipe-title" id="sundae-recipe-title">Spring Boot & K8s Sundae</h4>
+            <p class="sundae-recipe-desc" id="sundae-recipe-desc">
+              Layered with Apache Kafka and drizzled with Zero-Downtime CI/CD.
+            </p>
+
+            <div class="sundae-actions-row">
+              <button type="button" class="btn btn-strawberry text-sm py-2 px-4" id="btn-copy-recipe">
+                <i data-lucide="clipboard-check" class="w-4 h-4"></i>
+                <span>Copy Architecture Recipe</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Organic Melting SVG Drip Divider (Sundae Lab -> Contact) -->
+    <div class="drip-divider" aria-hidden="true">
+      <svg viewBox="0 0 1200 48" preserveAspectRatio="none" fill="#FAF3E8">
+        <path d="M0,0 C220,52 440,-5 660,30 C880,60 1020,8 1200,32 L1200,48 L0,48 Z" fill="#FFFDF9"/>
+        <circle cx="520" cy="40" r="5" fill="#FFFDF9"/>
+      </svg>
+    </div>
+
+    <!-- ======================================================================
+         Contact Section & Order Counter
+         ====================================================================== -->
+    <section class="section contact-section" id="contact">
+      <div class="section-container">
+        
+        <div class="section-header">
+          <span class="section-tag" style="background: var(--strawberry-light); color: var(--strawberry-dark);">
+            <i data-lucide="send" class="w-4 h-4"></i>
+            <span>The Parlor Order Window</span>
+          </span>
+          <h2 class="section-title">Scoop Up a Conversation!</h2>
+          <p class="section-subtitle">
+            Whether you have an internship opportunity, want to chat distributed systems, or have an idea for hilarious useless software — the parlor door is always open.
+          </p>
+        </div>
+
+        <div class="contact-card-wrap">
+          
+          <!-- Left Info Column -->
+          <div class="contact-info-panel">
+            <div>
+              <h3>Get In Touch</h3>
+              <p>
+                Currently seeking <strong>Software Engineering Internships / Full-Time Graduate Roles (2026)</strong> in Backend, Cloud Infrastructure, and Distributed Systems.
+              </p>
+
+              <div class="contact-channel-list">
+                <a href="mailto:durgakhadbade@gmail.com" class="contact-channel-item" id="btn-copy-email" title="Click to copy email">
+                  <div class="channel-icon">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <span class="text-xs text-gray-500 block">Direct Email</span>
+                    <span>durgakhadbade@gmail.com</span>
+                  </div>
+                </a>
+
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-channel-item">
+                  <div class="channel-icon">
+                    <i data-lucide="linkedin" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <span class="text-xs text-gray-500 block">Professional Network</span>
+                    <span>linkedin.com/in/durga-khadbade</span>
+                  </div>
+                </a>
+
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="contact-channel-item">
+                  <div class="channel-icon">
+                    <i data-lucide="github" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <span class="text-xs text-gray-500 block">Code Repository</span>
+                    <span>github.com/durgakhadbade</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- Social Links Row -->
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-gray-500 block mb-3">Connect Online</span>
+              <div class="social-pills-row">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-pill-btn" aria-label="GitHub">
+                  <i data-lucide="github" class="w-5 h-5"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-pill-btn" aria-label="LinkedIn">
+                  <i data-lucide="linkedin" class="w-5 h-5"></i>
+                </a>
+                <a href="mailto:durgakhadbade@gmail.com" class="social-pill-btn" aria-label="Email">
+                  <i data-lucide="mail" class="w-5 h-5"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-pill-btn" aria-label="Twitter">
+                  <i data-lucide="twitter" class="w-5 h-5"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Form Column -->
+          <div class="contact-form-panel">
+            <h4>Place Your Message Order 🍨</h4>
+
+            <form id="contact-parlor-form">
+              
+              <!-- Discussion Topic Tags -->
+              <div class="form-group">
+                <label>Select Discussion Flavor:</label>
+                <div class="flavor-flavor-select">
+                  <label class="flavor-radio-tag selected">
+                    <input type="radio" name="topic" value="Job Opportunity" class="hidden" checked>
+                    <span>💼 Job Opportunity</span>
+                  </label>
+                  <label class="flavor-radio-tag">
+                    <input type="radio" name="topic" value="Backend Collab" class="hidden">
+                    <span>⚡ Backend Collab</span>
+                  </label>
+                  <label class="flavor-radio-tag">
+                    <input type="radio" name="topic" value="Useless Software" class="hidden">
+                    <span>🛠️ Useless Software</span>
+                  </label>
+                  <label class="flavor-radio-tag">
+                    <input type="radio" name="topic" value="Ice Cream & Tech" class="hidden">
+                    <span>🍦 Ice Cream & Tech</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-name">Your Name</label>
+                <input type="text" id="contact-name" class="form-control" placeholder="e.g. Ada Lovelace" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email">Your Email Address</label>
+                <input type="email" id="contact-email" class="form-control" placeholder="ada@domain.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message">Your Message</label>
+                <textarea id="contact-message" class="form-control" placeholder="Tell me about your project, team, or ask me anything..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-strawberry w-full mt-2" id="btn-submit-order">
+                <i data-lucide="send" class="w-4 h-4"></i>
+                <span>Send Message to Durga</span>
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Melting Drip Divider (Main -> Footer) -->
+  <div class="drip-divider" aria-hidden="true">
+    <svg viewBox="0 0 1200 48" preserveAspectRatio="none" fill="#FFFDF9">
+      <path d="M0,0 C150,38 350,48 500,18 C650,-12 750,42 900,20 C1050,-2 1150,30 1200,8 L1200,48 L0,48 Z" fill="#2D3436"/>
+      <circle cx="280" cy="40" r="4" fill="#2D3436"/>
+      <circle cx="720" cy="42" r="5" fill="#2D3436"/>
+    </svg>
+  </div>
+
+  <!-- Footer -->
+  <footer class="parlor-footer">
+    <div class="footer-container">
+      
+      <div class="footer-top-row">
+        <div>
+          <a href="#hero" class="footer-logo">
+            <span>🍦</span>
+            <span>Durga Khadbade</span>
+          </a>
+          <p class="footer-tagline">
+            Serving distributed systems, clean architectures, and joyful code.
+          </p>
+        </div>
+
+        <a href="#hero" class="back-to-top-spoon" id="btn-back-to-top">
+          <span>Scoop to Top</span>
+          <i data-lucide="arrow-up" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+      <div class="footer-bottom-row">
+        <div>
+          Hand-churned with <span class="heart-sprinkle">💖</span>, Go, Java & plenty of sprinkles by Durga Khadbade • 2026
+        </div>
+        <div class="flex gap-4">
+          <span>TE ENTC Engineering</span>
+          <span>•</span>
+          <span>99.9% Uptime Mindset</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Toast Notification Box -->
+  <div class="toast-notification" id="toast-notification" role="status" aria-live="polite">
+    <div class="toast-icon">🍦</div>
+    <div>
+      <div class="toast-title" id="toast-title">Parlor Notification</div>
+      <div class="toast-desc" id="toast-desc">Flavor updated!</div>
+    </div>
+  </div>
+
+  <!-- Project Architecture Modal -->
+  <div class="modal-overlay" id="project-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-window">
+      <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="Close Modal">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="mb-4">
+        <span class="waffle-pill" id="modal-flavor">Special Flavor</span>
+      </div>
+
+      <h3 class="text-2xl font-bold mb-2 text-cocoa" id="modal-title">Project Title</h3>
+      
+      <p class="text-gray-600 mb-4 leading-relaxed" id="modal-description">Project Description</p>
+
+      <div class="mb-4">
+        <span class="text-xs font-bold uppercase tracking-wider text-gray-500 block mb-2">Tech Stack:</span>
+        <div class="flex flex-wrap gap-2" id="modal-stack"></div>
+      </div>
+
+      <div class="bg-gray-50 border border-gray-200 rounded-2xl p-4 text-sm text-gray-700" id="modal-deep-dive">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/three-scene.js"></script>
+  <script src="js/sprinkles.js"></script>
+  <script src="js/sundae-builder.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
